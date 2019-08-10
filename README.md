@@ -27,3 +27,5 @@ Bootstrap RabbitMQ Cluster on Kubernetes
 6. Enter **1** to install `rabbitmq`
 7. After installation, how to access your rabbitmq cluster should be printed in your terminal.
 8. Modify your dns records to point your domains (DOMAIN & amqp-DOMAIN) printed on screen to thier repective ips.
+9. Sip some tea and wait for your domains to reolve :).
+10. Connect to your new rabbitmq cluster whohoo!!.
