@@ -63,12 +63,12 @@ install_rabbitmq_k8s() {
 
   echo "Installing rabbitmq using deployment files..."
   sed "s#__RABBITMQ_USERNAME__#${RABBITMQ_USERNAME}#" ./deployment/secret.template > ./deployment/secret.tmp.yaml
-  sed -i .bak "s#__RABBITMQ_USERNAME_BASE64__#${RABBITMQ_USERNAME_BASE64}#" ./deployment/secret.tmp.yaml
-  sed -i .bak "s#__RABBITMQ_PASSWORD__#${RABBITMQ_PASSWORD}#" ./deployment/secret.tmp.yaml
-  sed -i .bak "s#__RABBITMQ_PASSWORD_BASE64__#${RABBITMQ_PASSWORD_BASE64}#" ./deployment/secret.tmp.yaml
-  sed -i .bak "s#__RABBITMQ_ERLANG_COOKIE_BASE64__#${RABBITMQ_ERLANG_COOKIE_BASE64}#" ./deployment/secret.tmp.yaml
+  sed -i.bak "s#__RABBITMQ_USERNAME_BASE64__#${RABBITMQ_USERNAME_BASE64}#" ./deployment/secret.tmp.yaml
+  sed -i.bak "s#__RABBITMQ_PASSWORD__#${RABBITMQ_PASSWORD}#" ./deployment/secret.tmp.yaml
+  sed -i.bak "s#__RABBITMQ_PASSWORD_BASE64__#${RABBITMQ_PASSWORD_BASE64}#" ./deployment/secret.tmp.yaml
+  sed -i.bak "s#__RABBITMQ_ERLANG_COOKIE_BASE64__#${RABBITMQ_ERLANG_COOKIE_BASE64}#" ./deployment/secret.tmp.yaml
   sed "s#__RABBITMQ_PUBLIC_DOMAIN__#${RABBITMQ_PUBLIC_DOMAIN}#" ./deployment/ingress.template > ./deployment/ingress.tmp.yaml
-  sed -i .bak "s#__RABBITMQ_TLS_SECRETNAME__#${RABBITMQ_TLS_SECRETNAME}#" ./deployment/ingress.tmp.yaml
+  sed -i.bak "s#__RABBITMQ_TLS_SECRETNAME__#${RABBITMQ_TLS_SECRETNAME}#" ./deployment/ingress.tmp.yaml
   sed "s#__RABBITMQ_TLS_SECRETNAME__#${RABBITMQ_TLS_SECRETNAME}#" ./deployment/statefulset.template > ./deployment/statefulset.tmp.yaml
   rm ./deployment/*.bak
   kubectl apply -f ./deployment/namespace.yaml
