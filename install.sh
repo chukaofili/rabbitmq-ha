@@ -84,6 +84,7 @@ get_loadbalancer_ip(){
     echo "Modify your dns records to point your domain amqp-${RABBITMQ_PUBLIC_DOMAIN} to ${AMQP_LB_IP}"
     echo "You can visit https://${RABBITMQ_PUBLIC_DOMAIN} to access the managment plugin"
     echo "You can use amqp://${RABBITMQ_USERNAME}:${RABBITMQ_PASSWORD}@amqp-${RABBITMQ_PUBLIC_DOMAIN} to access \n rabbitmq. The default queue is named 'default'"
+    echo "kindly wait a few mins for your dns resolver to propergate and issue your ssl certs"
     echo "================================================================================================="
 }
 
@@ -138,6 +139,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
             install_rabbitmq_k8s
+            sleep 180 #Wait for ip address
             get_loadbalancer_ip
             break;;
         No ) break;;
