@@ -1,5 +1,6 @@
 # rabbitmq-ha
-Bootstrap RabbitMQ Cluster on Kubernetes
+
+Bootstrap a highly available RabbitMQ Cluster on Kubernetes with TLS support using letsencrpt certificates.
 
 ## Pre-requisites
 
