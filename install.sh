@@ -93,7 +93,7 @@ select yn in "Yes" "No"; do
     case $yn in
         Yes )
             install_helm
-            sleep 5
+            sleep 30
             break;;
         No ) break;;
     esac
